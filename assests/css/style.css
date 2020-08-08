@@ -303,15 +303,64 @@ background: var(--primary-color);
 
 }
 
-
 .trainer{
     margin: 20px;
     background: var(--secondary-color);
     color: var(--primary-color);
     flex: 1;
+    overflow: hidden;
 }
-.trainer img {
+.trainer-1 {
+    background-image: url(../images/trainer-1.jpg);
+    position: relative;
+}
+.trainer-2 {
+    background-image: url(../images/trainer-2.jpg);
+    position: relative;
+}
+.trainer-3{
+    background-image: url(../images/trainer-3.jpg);
+    position: relative;
+}
+.trainer-img {
     width: 100%;
+    min-height: 300px;
+    display: flex;
+    padding: 15px;
+    align-items: flex-end;
+    background-size: cover;
+}
+.trainer-img::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: linear-gradient( rgba(252, 225, 56, 0.3), rgba(2, 78, 118, 1));
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.trainer:hover .trainer-img::after{
+    opacity: 1;
+}
+.trainer:hover .trainer-img h3, .trainer:hover .trainer-img h4 {
+top: 0;
+}
+.trainer-img h3 {
+    position: relative;
+    z-index: 9998;
+    font-size: 28px;
+    margin-bottom: 5px;
+    top: 300px;
+    transition: all 0.6s;
+}
+.trainer-img h4 {
+    position: relative;
+    z-index: 9998;
+    font-size: 22px;
+    top: 300px;
+    transition: all 0.6s;
 }
 .trainer-bio{
     padding: 25px;
@@ -331,12 +380,15 @@ background: var(--primary-color);
 
 .trainer-bio h3 {
     font-size: 28px;
+    display: none;
+    
 
 }
 .trainer-bio h4{
     font-weight: lighter;
     font-size: 22px;
     margin-bottom: 15px;
+    display: none;
 
 }
 .trainer-bio p {
@@ -557,6 +609,22 @@ background: var(--primary-color);
         grid-column: 1 / -1;
         grid-row: -1;
       }
+      .trainer-img h3{
+          display: none;
+      }
+      .trainer-img h4{
+          display: none;
+        
+      }
+      .trainer-img::after{
+          display: none;
+      }
+      .trainer-bio h3{
+          display: block;
+      }
+      .trainer-bio h4{
+        display: block;
+    }
 
   }
   @media screen and (max-width: 575px){
